@@ -1,0 +1,14 @@
+[package]
+authors = ["nyanzebra"]                                             # Will, put your alias or contact info here :)
+name = "ecs_macros"
+version = "0.1.0"
+edition = "2021"                                                    # Can upgrade to 2024 after March?
+description = "Entity Component System Macros for the game engine."
+
+[lib]
+proc-macro = true
+
+
+[dependencies]
+syn = { workspace = true }
+quote = { workspace = true }

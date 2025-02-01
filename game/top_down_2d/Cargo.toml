@@ -1,0 +1,12 @@
+[package]
+authors = ["nyanzebra"]             # Will, put your alias or contact info here :)
+name = "top_down_2d"
+version = "0.1.0"
+edition = "2021"                    # Can upgrade to 2024 after March?
+description = "A top-down 2D game."
+
+[dependencies]
+ecs = { path = "../../core/ecs" }
+graphics = { path = "../../graphics" }
+physics = { path = "../../core/physics" }
+ecs_macros = { path = "../../core/ecs_macros" }

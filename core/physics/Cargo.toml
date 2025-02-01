@@ -1,0 +1,6 @@
+[package]
+authors = ["nyanzebra"]                             # Will, put your alias or contact info here :)
+name = "physics"
+version = "0.1.0"
+edition = "2021"                                    # Can upgrade to 2024 after March?
+description = "Physics engine for the game engine."

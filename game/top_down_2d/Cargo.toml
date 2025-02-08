@@ -6,6 +6,9 @@ edition = "2021"                    # Can upgrade to 2024 after March?
 description = "A top-down 2D game."
 
 [dependencies]
+env_logger = { workspace = true }
+tokio = { workspace = true }
+
 ecs = { path = "../../core/ecs" }
 graphics = { path = "../../graphics" }
 physics = { path = "../../core/physics" }

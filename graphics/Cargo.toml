@@ -6,6 +6,8 @@ edition = "2021"                              # Can upgrade to 2024 after March?
 description = "Graphics for the game engine."
 
 [dependencies]
-vulkano = { workspace = true, default-features = true }
-vulkano-shaders = { workspace = true }
-winit = { workspace = true, default-features = true }
+glutin = { workspace = true }
+glutin-winit = { workspace = true }
+thiserror = { workspace = true }
+winit = { workspace = true }
+wgpu = { workspace = true }

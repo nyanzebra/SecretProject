@@ -16,7 +16,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         println!("Component: {:?}", comp);
     }
 
-    graphics::run().await.expect("graphics are working");
-
+    graphics::run().await.expect("Failed to initialize graphics");
     Ok(())
 }

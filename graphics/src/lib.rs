@@ -88,7 +88,7 @@ impl<'a> State<'a> {
 }
 
 pub async fn run() -> Result<(), Error> {
-    let event_loop = EventLoop::new().unwrap();
+    let event_loop = EventLoop::new()?;
     let window = WindowBuilder::new().build(&event_loop).unwrap();
 
     let state = State::new(&window).await?;

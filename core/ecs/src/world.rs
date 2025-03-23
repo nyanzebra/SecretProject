@@ -1,13 +1,18 @@
 use std::{any::Any, collections::HashMap};
 
+use crate::system::SystemRegistry;
+
 use super::{
     component::{Component, ComponentId, Components},
+    system::{System, SystemId, Systems},
     entity::{Entity, EntityGenerator},
     Id,
 };
 
 type ComponentIndex = usize;
 type ComponentsImpl<T> = Vec<Option<T>>;
+
+
 
 impl<C> Components for ComponentsImpl<C>
 where
@@ -28,6 +33,8 @@ pub struct World {
     // ecs management
     component_lookup: HashMap<ComponentId, ComponentIndex>,
     components: Vec<Box<dyn Components>>,
+
+    system_registry: SystemRegistry
 }
 
 impl World {
@@ -36,6 +43,7 @@ impl World {
             entity_generator: EntityGenerator::new(),
             component_lookup: HashMap::new(),
             components: Vec::new(),
+            system_registry:SystemRegistry::new()
         }
     }
 
@@ -59,6 +67,13 @@ impl World {
             .push(Box::new(ComponentsImpl::<C>::new()) as _);
 
         component_id
+    }
+
+    pub fn register_system<S>(&mut self, system: impl Into<S>) -> SystemId
+    where 
+        S: System + 'static,
+    {
+        self.system_registry.register_system::<S>()
     }
 
     pub fn register_component_on_entity<C>(&mut self, entity: Entity, initial_state: Option<C>)

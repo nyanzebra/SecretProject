@@ -1,9 +1,19 @@
-use ecs::world::{self, World};
+use ecs::{system::{self, System}, world::{self, World}};
 use ecs_macros::Component;
 
 #[derive(Component, Debug)]
 struct Test(i32);
+struct Health;
 
+impl System for Health {
+    fn id() -> system::SystemId {
+        1
+    }
+
+    fn run(self:Box<Self>, system_registry:&mut system::SystemRegistry) -> system::State {
+        
+    }
+}
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     env_logger::init();
